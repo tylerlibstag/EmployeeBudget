@@ -1,10 +1,9 @@
-
 let transactions = [];
 let myChart;
 
 fetch("/api/transaction")
   .then(response => {
-    return response.json();
+   response.json();
   })
   .then(data => {
     // save db data on global variable
@@ -64,7 +63,7 @@ function populateChart() {
   }
 
   let ctx = document.getElementById("myChart").getContext("2d");
-
+  
   myChart = new Chart(ctx, {
     type: 'line',
       data: {
@@ -107,6 +106,7 @@ function sendTransaction(isAdding) {
 
   // add to beginning of current array of data
   console.log(transaction)
+
   transactions.unshift(transaction);
 
   // re-run logic to populate ui with new record
@@ -137,6 +137,7 @@ function sendTransaction(isAdding) {
     }
   })
   .catch(err => {
+    console.log(transaction)
     // fetch failed, so save in indexed db
     saveRecord(transaction);
 
