@@ -11,9 +11,9 @@ const STATIC_CACHE = "static-cache-v1";
 const RUNTIME_CACHE = "runtime-cache";
 
 let deferredPrompt;
-self.addEventListener('beforeinstallprompt', (e) => {
+self.addEventListener('beforeinstallprompt', (x) => {
     e.preventDefault();
-    deferredPrompt = e;
+    deferredPrompt = x;
     showInstallPromotion();
 });
 
